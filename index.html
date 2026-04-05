@@ -4,528 +4,605 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Biliteracy Compass · Dr. Kathy Vergara</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --teal-deep: #085041;
-  --teal-mid: #0F6E56;
-  --teal-bright: #1D9E75;
-  --teal-light: #9FE1CB;
-  --teal-pale: #E1F5EE;
-  --purple-deep: #3C3489;
-  --purple-mid: #534AB7;
-  --purple-pale: #EEEDFE;
-  --amber: #BA7517;
-  --amber-pale: #FAEEDA;
-  --coral: #993C1D;
-  --coral-pale: #FAECE7;
-  --ink: #1a1a18;
-  --ink-soft: #444441;
-  --muted: #888780;
-  --border: rgba(0,0,0,0.08);
-  --surface: #fafaf8;
-  --white: #ffffff;
+  --sage:#6E8F7A; --sage-light:#e8f0eb; --sage-dark:#3d5445;
+  --terra:#D67852; --terra-light:#faeee6; --terra-dark:#8a3e1e;
+  --sand:#F4E7D2; --sand-dark:#c9b08a;
+  --teal:#4B8A8E; --teal-light:#e0f0f1; --teal-dark:#2a5558;
+  --gold:#C8A25A; --gold-light:#f5eed8; --gold-dark:#7a5e1e;
+  --charcoal:#2D2D29; --charcoal-soft:#5a5a55;
+  --cream:#FAF7F2; --white:#ffffff;
+  --border:rgba(45,45,41,0.1);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--ink);min-height:100vh;}
+body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;}
 
-.header{background:var(--teal-deep);padding:2rem 2rem 1.75rem;text-align:center;position:relative;overflow:hidden;}
-.header::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;border:40px solid rgba(255,255,255,0.04);}
-.header::after{content:'';position:absolute;bottom:-80px;left:-40px;width:240px;height:240px;border-radius:50%;border:50px solid rgba(255,255,255,0.03);}
-.brand-method{font-size:10px;font-weight:500;letter-spacing:0.2em;color:var(--teal-light);text-transform:uppercase;margin-bottom:8px;}
-.brand-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:500;color:#fff;letter-spacing:-0.01em;line-height:1.1;margin-bottom:6px;}
-.brand-by{font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.04em;}
-.compass-rule{width:36px;height:2px;background:var(--teal-bright);margin:14px auto;border-radius:2px;}
+.screen{display:none;}.screen.active{display:block;}
 
-.tabs{display:flex;border-bottom:0.5px solid var(--border);background:var(--white);position:sticky;top:0;z-index:10;}
-.tab{flex:1;padding:14px 8px;font-size:13px;font-weight:500;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;letter-spacing:0.02em;}
-.tab.active{color:var(--teal-deep);border-bottom-color:var(--teal-bright);}
-.tab:hover:not(.active){color:var(--ink-soft);}
+/* ── LANDING ── */
+.land-hero{background:var(--charcoal);padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden;}
+.land-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.land-eyebrow{font-size:10px;font-weight:500;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.land-title{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--white);line-height:1.05;margin-bottom:6px;letter-spacing:-0.01em;}
+.land-subtitle{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--gold);margin-bottom:6px;}
+.land-by{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:0.05em;margin-bottom:24px;}
+.land-rule{width:40px;height:1px;background:var(--gold);margin:0 auto 24px;}
+.land-quote{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:rgba(255,255,255,0.8);max-width:520px;margin:0 auto 8px;line-height:1.6;}
+.land-quote-attr{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.06em;}
 
-.main{max-width:780px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+.land-body{max-width:780px;margin:0 auto;padding:3rem 1.5rem;}
+.land-sec-label{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal-soft);margin-bottom:14px;}
+.land-headline{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:500;color:var(--charcoal);margin-bottom:12px;line-height:1.25;}
+.land-body-text{font-size:13px;color:var(--charcoal-soft);line-height:1.9;margin-bottom:2.5rem;}
+
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2.5rem;}
+.what-card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem;}
+.what-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold);margin-bottom:4px;}
+.what-title{font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:6px;}
+.what-desc{font-size:11px;color:var(--charcoal-soft);line-height:1.7;}
+
+.zone-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:2.5rem;}
+.zone-card{padding:1.1rem 1.25rem;border-radius:10px;}
+.zN{background:var(--sage-light);}
+.zE{background:var(--teal-light);}
+.zS{background:var(--terra-light);}
+.zW{background:var(--sand);}
+.zone-dir{font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;}
+.zN .zone-dir{color:var(--sage);}
+.zE .zone-dir{color:var(--teal);}
+.zS .zone-dir{color:var(--terra);}
+.zW .zone-dir{color:var(--gold-dark);}
+.zone-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:500;margin-bottom:4px;}
+.zN .zone-name{color:var(--sage-dark);}
+.zE .zone-name{color:var(--teal-dark);}
+.zS .zone-name{color:var(--terra-dark);}
+.zW .zone-name{color:var(--gold-dark);}
+.zone-desc{font-size:11px;line-height:1.6;}
+.zN .zone-desc{color:var(--sage);}
+.zE .zone-desc{color:var(--teal);}
+.zS .zone-desc{color:var(--terra);}
+.zW .zone-desc{color:var(--gold-dark);}
+
+.cred-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:2.5rem;}
+.cred-card{background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:1rem;text-align:center;}
+.cred-year{font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.06em;margin-bottom:4px;}
+.cred-title{font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:3px;line-height:1.4;}
+.cred-org{font-size:11px;color:var(--charcoal-soft);}
+
+.land-login-box{background:var(--white);border:0.5px solid var(--border);border-radius:16px;padding:2.5rem;text-align:center;max-width:420px;margin:0 auto;}
+.land-login-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--charcoal);margin-bottom:6px;}
+.land-login-sub{font-size:12px;color:var(--charcoal-soft);margin-bottom:20px;line-height:1.6;}
+.gate-input{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:'Poppins',sans-serif;font-size:14px;text-align:center;letter-spacing:0.12em;outline:none;margin-bottom:12px;background:var(--cream);}
+.gate-input:focus{border-color:var(--sage);}
+.gate-btn{width:100%;padding:13px;background:var(--charcoal);color:white;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.04em;transition:background 0.15s;}
+.gate-btn:hover{background:var(--sage-dark);}
+.gate-error{font-size:12px;color:var(--terra);margin-top:8px;min-height:16px;}
+.gate-pilot{font-size:11px;color:var(--charcoal-soft);margin-top:14px;line-height:1.7;}
+
+/* ── APP ── */
+.app-header{background:var(--charcoal);padding:1.5rem 2rem;text-align:center;position:relative;}
+.brand-eyebrow{font-size:9px;font-weight:500;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;}
+.brand-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--white);margin-bottom:2px;}
+.brand-subtitle{font-family:'Playfair Display',serif;font-size:0.85rem;font-style:italic;color:var(--gold);margin-bottom:3px;}
+.brand-by{font-size:11px;color:rgba(255,255,255,0.4);}
+.brand-rule{width:32px;height:1px;background:var(--gold);margin:8px auto;}
+.back-link{position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;border:0.5px solid rgba(255,255,255,0.15);padding:4px 10px;border-radius:5px;}
+.back-link:hover{color:var(--white);border-color:rgba(255,255,255,0.4);}
+.pilot-banner{background:var(--gold-light);border-bottom:0.5px solid var(--sand-dark);padding:7px 20px;text-align:center;font-size:11px;color:var(--gold-dark);font-weight:500;}
+
+.tabs{display:flex;border-bottom:1px solid var(--border);background:var(--white);position:sticky;top:0;z-index:10;}
+.tab{flex:1;padding:13px 6px;font-size:11px;font-weight:500;color:var(--charcoal-soft);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;font-family:'Poppins',sans-serif;}
+.tab.active{color:var(--sage-dark);border-bottom-color:var(--sage);}
+
+.main{max-width:820px;margin:0 auto;padding:2rem 1.5rem 4rem;}
 .panel{display:none;}.panel.active{display:block;}
 
-.sec-label{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
-.card{background:var(--white);border:0.5px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;}
+.sec-label{font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal-soft);margin-bottom:12px;}
+.card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;}
+.feedback-note{background:var(--teal-light);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:12px;color:var(--teal-dark);line-height:1.7;}
 
-label{display:block;font-size:12px;font-weight:500;color:var(--ink-soft);margin-bottom:6px;letter-spacing:0.02em;}
-input[type="number"],input[type="text"],select{width:100%;padding:10px 14px;border:0.5px solid rgba(0,0,0,0.12);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);background:var(--surface);outline:none;transition:border-color 0.15s;-moz-appearance:textfield;}
+label{display:block;font-size:11px;font-weight:500;color:var(--charcoal-soft);margin-bottom:6px;}
+input[type="number"],input[type="text"],select{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:7px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--charcoal);background:var(--cream);outline:none;transition:border-color 0.15s;-moz-appearance:textfield;}
 input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;}
-input:focus,select:focus{border-color:var(--teal-bright);background:white;}
+input:focus,select:focus{border-color:var(--sage);}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .field-group{margin-bottom:1.25rem;}
 .field-group:last-child{margin-bottom:0;}
-.hint{font-size:11px;color:var(--muted);margin-top:5px;}
+.hint{font-size:10px;color:var(--charcoal-soft);margin-top:5px;}
 
-.btn{width:100%;padding:14px;background:var(--teal-deep);color:white;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.04em;cursor:pointer;transition:background 0.15s,transform 0.1s;margin-bottom:1rem;}
-.btn:hover{background:var(--teal-mid);}
+.btn{width:100%;padding:13px;background:var(--charcoal);color:white;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:background 0.15s,transform 0.1s;margin-bottom:1rem;letter-spacing:0.02em;}
+.btn:hover{background:var(--sage-dark);}
 .btn:active{transform:scale(0.99);}
-.btn-outline{background:transparent;color:var(--teal-deep);border:1.5px solid var(--teal-deep);}
-.btn-outline:hover{background:var(--teal-pale);}
-.btn-sm{width:auto;padding:8px 16px;font-size:12px;margin-bottom:0;display:inline-block;}
+.btn-outline{background:transparent;color:var(--charcoal);border:1px solid var(--charcoal);}
+.btn-outline:hover{background:var(--sand);}
+.btn-sage{background:var(--sage);}
+.btn-sage:hover{background:var(--sage-dark);}
+.btn-sm{width:auto;padding:7px 14px;font-size:11px;margin-bottom:0;display:inline-block;}
+.btn-gold{background:var(--gold);color:var(--charcoal);}
+.btn-gold:hover{background:var(--gold-dark);color:white;}
 
-.upload-zone{border:1.5px dashed rgba(0,0,0,0.15);border-radius:12px;padding:2rem;text-align:center;margin-bottom:1rem;cursor:pointer;transition:border-color 0.15s,background 0.15s;}
-.upload-zone:hover{border-color:var(--teal-bright);background:var(--teal-pale);}
-.upload-zone.dragover{border-color:var(--teal-bright);background:var(--teal-pale);}
-.upload-icon{font-size:24px;margin-bottom:8px;color:var(--muted);}
-.upload-text{font-size:13px;color:var(--ink-soft);margin-bottom:4px;}
-.upload-sub{font-size:11px;color:var(--muted);}
+.upload-zone{border:1.5px dashed var(--sand-dark);border-radius:10px;padding:2rem;text-align:center;margin-bottom:1rem;cursor:pointer;transition:border-color 0.15s,background 0.15s;}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--sage);background:var(--sage-light);}
+.upload-icon{font-size:22px;margin-bottom:8px;color:var(--charcoal-soft);}
+.upload-text{font-size:13px;color:var(--charcoal-soft);margin-bottom:4px;}
+.upload-sub{font-size:11px;color:var(--charcoal-soft);}
+.template-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--cream);border-radius:8px;margin-bottom:1rem;}
 
-.template-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--surface);border-radius:8px;margin-bottom:1rem;}
-.template-text{font-size:12px;color:var(--muted);flex:1;}
-
-/* Results */
-.profile-card{background:var(--white);border:0.5px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:1.5rem;animation:fadeUp 0.35s ease;}
+/* PROFILE */
+.profile-card{background:var(--white);border:0.5px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.5rem;animation:fadeUp 0.35s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-.profile-header{padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-.profile-student{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;}
-.profile-grade{font-size:12px;color:var(--muted);margin-top:2px;}
-.zone-badge{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;}
+.profile-header{padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;background:var(--cream);}
+.profile-student{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;}
+.profile-grade{font-size:11px;color:var(--charcoal-soft);margin-top:2px;}
+.zone-badge{padding:4px 14px;border-radius:20px;font-size:11px;font-weight:500;}
 
-.profile-body{display:grid;grid-template-columns:180px 1fr;gap:0;}
-.profile-compass-col{padding:1.25rem;border-right:0.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:10px;}
+.profile-body{display:grid;grid-template-columns:170px 1fr;}
+.profile-compass-col{padding:1.25rem;border-right:0.5px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:8px;background:var(--cream);}
 .profile-info-col{padding:1.25rem;}
-
-.zone-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;text-align:center;}
-.zone-tier{font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding:3px 10px;border-radius:4px;display:inline-block;}
-.tier-thriving{background:var(--teal-pale);color:var(--teal-deep);}
-.tier-watch{background:var(--amber-pale);color:var(--amber);}
-.tier-intervene{background:var(--coral-pale);color:var(--coral);}
-
+.zone-name-lbl{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;text-align:center;}
+.zone-tier{font-size:9px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px;display:inline-block;}
+.tier-thriving{background:var(--sage-light);color:var(--sage-dark);}
+.tier-watch{background:var(--gold-light);color:var(--gold-dark);}
+.tier-intervene{background:var(--terra-light);color:var(--terra-dark);}
 .data-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:0.5px solid var(--border);font-size:12px;}
 .data-row:last-child{border-bottom:none;}
-.data-label{color:var(--muted);}
+.data-label{color:var(--charcoal-soft);}
 .data-value{font-weight:500;}
 
 .strat-section{padding:1.25rem 1.5rem;border-top:0.5px solid var(--border);}
-.strat-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
-.strat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
-.strat-item{padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.5;}
-.action-box{padding:12px 14px;border-radius:8px;border-left:3px solid var(--teal-bright);font-size:13px;line-height:1.6;margin-bottom:10px;}
-.grade-band-box{padding:10px 14px;border-radius:8px;font-size:12px;line-height:1.5;}
+.strat-label{font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--charcoal-soft);margin-bottom:10px;}
+.strat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.strat-item{padding:10px 12px;border-radius:8px;font-size:11px;line-height:1.7;}
+.action-box{padding:12px 14px;font-size:12px;line-height:1.8;margin-bottom:6px;border-top-right-radius:8px;border-bottom-right-radius:8px;}
+.citation{font-size:10px;color:var(--charcoal-soft);font-style:italic;margin-bottom:12px;line-height:1.5;}
+.grade-band-box{padding:10px 14px;border-radius:8px;font-size:11px;line-height:1.7;margin-bottom:12px;}
+.next-block{border-top:0.5px solid var(--border);padding:1.25rem 1.5rem;}
+.next-header{font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--charcoal-soft);margin-bottom:12px;}
+.next-step{display:flex;gap:12px;margin-bottom:10px;align-items:flex-start;}
+.next-step:last-child{margin-bottom:0;}
+.next-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;margin-top:1px;}
+.next-text{font-size:12px;color:var(--charcoal);line-height:1.5;}
+.next-sub{font-size:11px;color:var(--charcoal-soft);margin-top:3px;line-height:1.5;}
+
+.download-bar{display:flex;gap:8px;padding:1rem 1.5rem;background:var(--sand);border-top:0.5px solid var(--border);flex-wrap:wrap;}
 
 /* Zone colors */
-.zone-E .zone-badge,.zone-E .zone-name{color:#085041;}
-.zone-E .zone-badge{background:var(--teal-pale);}
-.zone-N .zone-badge,.zone-N .zone-name{color:var(--teal-deep);}
-.zone-N .zone-badge{background:var(--teal-pale);}
-.zone-S .zone-badge,.zone-S .zone-name{color:#412402;}
-.zone-S .zone-badge{background:var(--amber-pale);}
-.zone-W .zone-badge,.zone-W .zone-name{color:#4A1B0C;}
-.zone-W .zone-badge{background:var(--coral-pale);}
+.zone-N .zone-badge{background:var(--sage-light);color:var(--sage-dark);}
+.zone-N .zone-name-lbl{color:var(--sage-dark);}
+.zone-N .action-box{background:var(--sage-light);color:var(--sage-dark);border-left:3px solid var(--sage);}
+.zone-N .strat-item{background:var(--sage-light);color:var(--sage-dark);}
+.zone-N .grade-band-box{background:#edf4ef;color:var(--sage);}
+.zone-N .next-num{background:var(--sage-light);color:var(--sage-dark);}
 
-.strat-E .strat-item{background:var(--teal-pale);color:var(--teal-deep);}
-.strat-E .action-box{background:var(--teal-pale);color:var(--teal-deep);border-color:var(--teal-bright);}
-.strat-E .grade-band-box{background:#f0fbf6;color:var(--teal-mid);}
-.strat-N .strat-item{background:var(--teal-pale);color:var(--teal-deep);}
-.strat-N .action-box{background:var(--teal-pale);color:var(--teal-deep);border-color:var(--teal-bright);}
-.strat-N .grade-band-box{background:#f0fbf6;color:var(--teal-mid);}
-.strat-S .strat-item{background:var(--amber-pale);color:#412402;}
-.strat-S .action-box{background:var(--amber-pale);color:#412402;border-color:var(--amber);}
-.strat-S .grade-band-box{background:#fdf5e6;color:var(--amber);}
-.strat-W .strat-item{background:var(--coral-pale);color:#4A1B0C;}
-.strat-W .action-box{background:var(--coral-pale);color:#4A1B0C;border-color:var(--coral);}
-.strat-W .grade-band-box{background:#fdf0ec;color:var(--coral);}
+.zone-E .zone-badge{background:var(--teal-light);color:var(--teal-dark);}
+.zone-E .zone-name-lbl{color:var(--teal-dark);}
+.zone-E .action-box{background:var(--teal-light);color:var(--teal-dark);border-left:3px solid var(--teal);}
+.zone-E .strat-item{background:var(--teal-light);color:var(--teal-dark);}
+.zone-E .grade-band-box{background:#e8f4f5;color:var(--teal);}
+.zone-E .next-num{background:var(--teal-light);color:var(--teal-dark);}
 
-/* Class dashboard */
-.class-table{width:100%;border-collapse:collapse;font-size:12px;}
-.class-table th{text-align:left;padding:8px 12px;background:var(--surface);color:var(--muted);font-weight:500;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;border-bottom:0.5px solid var(--border);}
-.class-table td{padding:9px 12px;border-bottom:0.5px solid var(--border);color:var(--ink-soft);}
-.class-table tr:last-child td{border-bottom:none;}
-.class-table tr:hover td{background:var(--surface);}
-.pill{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:500;}
-.pill-E{background:var(--teal-pale);color:var(--teal-deep);}
-.pill-N{background:var(--teal-pale);color:var(--teal-deep);}
-.pill-S{background:var(--amber-pale);color:#412402;}
-.pill-W{background:var(--coral-pale);color:#4A1B0C);}
-.pill-thriving{background:var(--teal-pale);color:var(--teal-deep);}
-.pill-watch{background:var(--amber-pale);color:var(--amber);}
-.pill-intervene{background:var(--coral-pale);color:var(--coral);}
+.zone-S .zone-badge{background:var(--terra-light);color:var(--terra-dark);}
+.zone-S .zone-name-lbl{color:var(--terra-dark);}
+.zone-S .action-box{background:var(--terra-light);color:var(--terra-dark);border-left:3px solid var(--terra);}
+.zone-S .strat-item{background:var(--terra-light);color:var(--terra-dark);}
+.zone-S .grade-band-box{background:#fdf2eb;color:var(--terra);}
+.zone-S .next-num{background:var(--terra-light);color:var(--terra-dark);}
+
+.zone-W .zone-badge{background:var(--sand);color:var(--gold-dark);}
+.zone-W .zone-name-lbl{color:var(--gold-dark);}
+.zone-W .action-box{background:var(--sand);color:var(--gold-dark);border-left:3px solid var(--gold);}
+.zone-W .strat-item{background:var(--sand);color:var(--gold-dark);}
+.zone-W .grade-band-box{background:#f9f0de;color:var(--gold-dark);}
+.zone-W .next-num{background:var(--sand);color:var(--gold-dark);}
+
+/* SCATTER */
+.plot-wrap{background:var(--white);border:0.5px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;}
+.plot-canvas-wrap{position:relative;width:100%;padding-bottom:72%;margin-bottom:1rem;}
+.plot-canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;}
+.plot-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--charcoal-soft);}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.student-tooltip{display:none;position:absolute;background:var(--charcoal);color:white;font-size:11px;padding:6px 10px;border-radius:6px;pointer-events:none;white-space:nowrap;z-index:20;}
 
 .summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
-.summary-card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;padding:1rem;text-align:center;}
-.summary-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;}
-.summary-lbl{font-size:11px;color:var(--muted);margin-top:2px;}
+.summary-card{background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:1rem;text-align:center;}
+.summary-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;}
+.summary-lbl{font-size:10px;color:var(--charcoal-soft);margin-top:2px;}
 
-/* Conversion ref */
-.ref-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px;}
-.ref-table th{text-align:left;padding:6px 10px;background:var(--surface);color:var(--muted);font-weight:500;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;}
-.ref-table td{padding:7px 10px;border-top:0.5px solid var(--border);color:var(--ink-soft);}
+.class-table{width:100%;border-collapse:collapse;font-size:11px;}
+.class-table th{text-align:left;padding:8px 12px;background:var(--cream);color:var(--charcoal-soft);font-weight:500;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;border-bottom:0.5px solid var(--border);}
+.class-table td{padding:9px 12px;border-bottom:0.5px solid var(--border);color:var(--charcoal-soft);}
+.class-table tr:last-child td{border-bottom:none;}
+.class-table tr:hover td{background:var(--cream);}
+.pill{display:inline-block;padding:2px 10px;border-radius:10px;font-size:10px;font-weight:500;}
+.pill-N,.pill-E{background:var(--sage-light);color:var(--sage-dark);}
+.pill-S{background:var(--terra-light);color:var(--terra-dark);}
+.pill-W{background:var(--sand);color:var(--gold-dark);}
+.pill-thriving{background:var(--sage-light);color:var(--sage-dark);}
+.pill-watch{background:var(--gold-light);color:var(--gold-dark);}
+.pill-intervene{background:var(--terra-light);color:var(--terra-dark);}
 
-.footer{text-align:center;padding:2rem 1.5rem;border-top:0.5px solid var(--border);margin-top:2rem;}
-.footer-brand{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--teal-deep);margin-bottom:4px;}
-.footer-copy{font-size:11px;color:var(--muted);}
+.ref-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:10px;}
+.ref-table th{text-align:left;padding:6px 10px;background:var(--cream);color:var(--charcoal-soft);font-weight:500;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;}
+.ref-table td{padding:7px 10px;border-top:0.5px solid var(--border);color:var(--charcoal-soft);}
+
+.footer{text-align:center;padding:2rem 1.5rem;border-top:0.5px solid var(--border);background:var(--white);}
+.footer-brand{font-family:'Playfair Display',serif;font-size:16px;color:var(--sage-dark);margin-bottom:4px;}
+.footer-rule{width:24px;height:1px;background:var(--gold);margin:6px auto;}
+.footer-copy{font-size:10px;color:var(--charcoal-soft);}
 
 @media(max-width:560px){
-  .brand-title{font-size:1.8rem;}
+  .land-title{font-size:2rem;}
+  .what-grid,.zone-grid,.cred-row{grid-template-columns:1fr;}
   .field-row{grid-template-columns:1fr;}
   .profile-body{grid-template-columns:1fr;}
   .profile-compass-col{border-right:none;border-bottom:0.5px solid var(--border);}
   .strat-grid{grid-template-columns:1fr;}
   .summary-grid{grid-template-columns:repeat(2,1fr);}
+  .download-bar{flex-direction:column;}
+}
+
+@media print {
+  .tabs,.pilot-banner,.app-header,.download-bar,.back-link{display:none!important;}
+  .main{padding:0;}
+  .profile-card{break-inside:avoid;margin-bottom:1rem;}
+  body{background:white;}
 }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <p class="brand-method">Biliterate by Design · Pilot Version 1.0</p>
-  <div class="compass-rule"></div>
-  <h1 class="brand-title">The Biliteracy Compass</h1>
-  <p class="brand-by">Dr. Kathy Vergara, EdD · The Biliteracy Architect</p>
+<!-- LANDING -->
+<div class="screen active" id="screen-landing">
+  <div class="land-hero">
+    <p class="land-eyebrow">Biliterate by Design · Pilot Version 1.0</p>
+    <div style="width:32px;height:1px;background:var(--gold);margin:10px auto 16px;"></div>
+    <h1 class="land-title">The Biliteracy Compass</h1>
+    <p class="land-subtitle">Dual-Language · Asset-Based Assessment Tool</p>
+    <p class="land-by">Dr. Kathy Vergara, EdD · The Biliteracy Architect</p>
+    <div class="land-rule"></div>
+    <p class="land-quote">"Biliteracy is not a barrier to overcome. It is a bridge to understanding."</p>
+    <p class="land-quote-attr">Dr. Kathy Vergara, EdD</p>
+  </div>
+
+  <div class="land-body">
+    <div style="margin-bottom:2.5rem;">
+      <p class="land-sec-label">The tool</p>
+      <h2 class="land-headline">Every student has a biliteracy story. Now you can see it.</h2>
+      <p class="land-body-text">The Biliteracy Compass is a dual-language, asset-based assessment tool built on one foundational belief: both languages matter, and both languages tell the story. Using English and Spanish performance data, the Compass orients each student within a biliteracy zone, identifies their dominant language from the data, and generates a precise instructional profile with research-grounded strategies and a concrete six-week action plan. No deficit framing. No sorting. No one-size-fits-all intervention. Just clarity, and a compass that always points forward.</p>
+    </div>
+
+    <div style="margin-bottom:2.5rem;">
+      <p class="land-sec-label">What the Compass does</p>
+      <div class="what-grid">
+        <div class="what-card"><div class="what-num">01</div><p class="what-title">Sees both languages at once</p><p class="what-desc">English and Spanish percentiles plotted together. Dominant language calculated from data, not assumed.</p></div>
+        <div class="what-card"><div class="what-num">02</div><p class="what-title">Places students in a zone</p><p class="what-desc">Each student lands in one of four compass zones based on their biliteracy profile, not a deficit label.</p></div>
+        <div class="what-card"><div class="what-num">03</div><p class="what-title">Answers what's next</p><p class="what-desc">Every profile includes research-grounded strategies, grade-band specifics, and a six-week instructional action plan.</p></div>
+        <div class="what-card"><div class="what-num">04</div><p class="what-title">Shows the whole class</p><p class="what-desc">Upload a class roster and see every student on a biliteracy scatter plot. Click any dot to open their full profile.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:2.5rem;">
+      <p class="land-sec-label">The four compass zones</p>
+      <div class="zone-grid">
+        <div class="zone-card zN"><p class="zone-dir">North</p><p class="zone-name">Spanish Dominant</p><p class="zone-desc">Strong Spanish performance. English acceleration is the priority, using Spanish as the bridge.</p></div>
+        <div class="zone-card zE"><p class="zone-dir">East</p><p class="zone-name">Advanced Biliteracy</p><p class="zone-desc">At or above the 50th percentile in both languages. Focus is academic rigor and metalinguistic depth.</p></div>
+        <div class="zone-card zS"><p class="zone-dir">South</p><p class="zone-name">English Dominant</p><p class="zone-desc">Strong English performance. Spanish acceleration is the priority through authentic, culturally rooted instruction.</p></div>
+        <div class="zone-card zW"><p class="zone-dir">West</p><p class="zone-name">Developing Biliteracy</p><p class="zone-desc">Below the 40th percentile in both languages. Content intervention in the dominant language is the priority.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:2.5rem;">
+      <p class="land-sec-label">Built on research and practice</p>
+      <div class="cred-row">
+        <div class="cred-card"><p class="cred-year">TEA · 2021</p><p class="cred-title">Texas Education Agency recognition</p><p class="cred-org">Biliteracy curriculum across 18 campuses</p></div>
+        <div class="cred-card"><p class="cred-year">TABE · 2023</p><p class="cred-title">Public Education Honoree</p><p class="cred-org">Texas Association for Bilingual Education</p></div>
+        <div class="cred-card"><p class="cred-year">Solution Tree</p><p class="cred-title">Published author</p><p class="cred-org">Culture Champions anthology</p></div>
+      </div>
+      <p style="font-size:11px;color:var(--charcoal-soft);text-align:center;line-height:1.7;">Research base: Collier and Thomas (2017) · Escamilla (2013) · Garcia and Wei (2014) · Howard et al. (2018) · Valenzuela (1999) · Amplify (2024) · Butvilofsky et al. (2021)</p>
+    </div>
+
+    <div class="land-login-box">
+      <p style="font-size:9px;font-weight:500;letter-spacing:0.18em;color:var(--gold-dark);text-transform:uppercase;margin-bottom:10px;">Pilot access</p>
+      <div style="width:24px;height:1px;background:var(--gold);margin:0 auto 16px;"></div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px;">Enter your access code</h3>
+      <p class="land-login-sub">The Biliteracy Compass is currently in pilot phase and available by invitation only. Enter your access code to continue.</p>
+      <input class="gate-input" type="password" id="land-code" placeholder="Access code" onkeydown="if(event.key==='Enter')checkCode()">
+      <button class="gate-btn" onclick="checkCode()">Enter the Compass</button>
+      <p class="gate-error" id="land-error"></p>
+      <p class="gate-pilot">Access is by invitation only.<br>Contact Dr. Vergara for access.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p class="footer-brand">The Biliteracy Architect</p>
+    <div class="footer-rule"></div>
+    <p class="footer-copy">© 2026 Dr. Kathy Vergara, EdD · Biliterate by Design · Where biliteracy is built, not borrowed. · No student data leaves your device.</p>
+  </div>
 </div>
 
-<div class="tabs">
-  <button class="tab active" onclick="switchTab('individual')">Individual Student</button>
-  <button class="tab" onclick="switchTab('class')">Class Upload</button>
-  <button class="tab" onclick="switchTab('dashboard')">Class Dashboard</button>
-  <button class="tab" onclick="switchTab('reference')">Score Reference</button>
-</div>
+<!-- APP -->
+<div class="screen" id="screen-app">
+  <div class="app-header">
+    <span class="back-link" onclick="showLanding()">Back to overview</span>
+    <p class="brand-eyebrow">Biliterate by Design · Pilot 1.0</p>
+    <div class="brand-rule"></div>
+    <h1 class="brand-title">The Biliteracy Compass</h1>
+    <p class="brand-subtitle">Dual-Language · Asset-Based Assessment Tool</p>
+    <p class="brand-by">Dr. Kathy Vergara, EdD · The Biliteracy Architect</p>
+  </div>
+  <div class="pilot-banner">Pilot Version 1.0 · Authorized educator use only · No student data leaves your device · FERPA compliant · Access code: PILOT2026</div>
 
-<div class="main">
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('individual')">Individual Student</button>
+    <button class="tab" onclick="switchTab('class')">Class Upload</button>
+    <button class="tab" onclick="switchTab('dashboard')">Class Dashboard</button>
+    <button class="tab" onclick="switchTab('reference')">Score Reference</button>
+  </div>
 
-  <!-- INDIVIDUAL TAB -->
-  <div class="panel active" id="panel-individual">
-    <p class="sec-label">Student information</p>
-    <div class="card">
-      <div class="field-group">
-        <label>Student name or ID</label>
-        <input type="text" id="i-name" placeholder="e.g. Student A or ID number">
-      </div>
-      <div class="field-group">
-        <label>Grade level</label>
-        <select id="i-grade">
-          <option value="">Select grade</option>
-          <option value="K">Kindergarten</option>
-          <option value="1">Grade 1</option>
-          <option value="2">Grade 2</option>
-          <option value="3">Grade 3</option>
-          <option value="4">Grade 4</option>
-          <option value="5">Grade 5</option>
-        </select>
-      </div>
-      <div class="field-group">
-        <div class="field-row">
-          <div>
-            <label>English percentile</label>
-            <input type="number" id="i-eng" min="1" max="99" placeholder="e.g. 62">
-            <p class="hint">1–99 · See Score Reference tab</p>
-          </div>
-          <div>
-            <label>Spanish percentile</label>
-            <input type="number" id="i-spa" min="1" max="99" placeholder="e.g. 78">
-            <p class="hint">1–99 · See Score Reference tab</p>
+  <div class="main">
+
+    <!-- INDIVIDUAL -->
+    <div class="panel active" id="panel-individual">
+      <div class="feedback-note">Pilot educators: your observations shape this tool. After using the Compass with your students, share what it helped you see and what needs refinement. Contact Dr. Vergara directly with your feedback.</div>
+      <p class="sec-label">Student information</p>
+      <div class="card">
+        <div class="field-group"><label>Student name or ID</label><input type="text" id="i-name" placeholder="e.g. Student A or ID number"></div>
+        <div class="field-group">
+          <label>Grade level</label>
+          <select id="i-grade">
+            <option value="">Select grade</option>
+            <option value="K">Kindergarten</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="4">Grade 4</option>
+            <option value="5">Grade 5</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <div class="field-row">
+            <div><label>English percentile</label><input type="number" id="i-eng" min="1" max="99" placeholder="e.g. 62"><p class="hint">1-99 · See Score Reference tab</p></div>
+            <div><label>Spanish percentile</label><input type="number" id="i-spa" min="1" max="99" placeholder="e.g. 78"><p class="hint">1-99 · See Score Reference tab</p></div>
           </div>
         </div>
+        <p class="hint">Dominant language is calculated automatically from your data.</p>
       </div>
-      <p class="hint" style="margin-bottom:0;">Dominant language is calculated from your data — no manual entry needed.</p>
-    </div>
-    <button class="btn" onclick="analyzeIndividual()">Generate Biliteracy Compass Profile</button>
-    <div id="individual-result"></div>
-  </div>
-
-  <!-- CLASS UPLOAD TAB -->
-  <div class="panel" id="panel-class">
-    <p class="sec-label">Upload class roster</p>
-
-    <div class="template-row">
-      <div style="flex:1;">
-        <p style="font-size:13px;font-weight:500;color:var(--ink-soft);margin-bottom:2px;">Download the CSV template first</p>
-        <p class="hint">Required columns: StudentID, Grade, EnglishPercentile, SpanishPercentile</p>
-      </div>
-      <button class="btn btn-outline btn-sm" onclick="downloadTemplate()">Download template</button>
+      <button class="btn" onclick="analyzeIndividual()">Generate Biliteracy Compass Profile</button>
+      <div id="individual-result"></div>
     </div>
 
-    <div class="card">
-      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropFile(event)">
-        <div class="upload-icon">↑</div>
-        <p class="upload-text">Click to upload or drag and drop your CSV</p>
-        <p class="upload-sub">StudentID · Grade · EnglishPercentile · SpanishPercentile</p>
+    <!-- CLASS UPLOAD -->
+    <div class="panel" id="panel-class">
+      <div class="feedback-note">Upload your class roster. Zone placement, dominant language, and instructional next steps are all calculated automatically. No student data is stored or transmitted.</div>
+      <p class="sec-label">Upload class roster</p>
+      <div class="template-row">
+        <div style="flex:1;"><p style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:2px;">Download the CSV template first</p><p class="hint">Required columns: StudentID, Grade, EnglishPercentile, SpanishPercentile</p></div>
+        <button class="btn btn-outline btn-sm" onclick="downloadTemplate()">Download template</button>
       </div>
-      <input type="file" id="file-input" accept=".csv" style="display:none;" onchange="handleFile(event)">
-
-      <div id="upload-status" style="display:none;padding:10px 14px;border-radius:8px;font-size:13px;margin-top:8px;"></div>
-
-      <div id="paste-section" style="margin-top:1rem;">
-        <label>Or paste CSV data directly</label>
-        <textarea id="paste-area" rows="6" style="width:100%;padding:10px 14px;border:0.5px solid rgba(0,0,0,0.12);border-radius:8px;font-family:monospace;font-size:12px;color:var(--ink);background:var(--surface);resize:vertical;outline:none;" placeholder="StudentID,Grade,EnglishPercentile,SpanishPercentile&#10;STU001,3,62,78&#10;STU002,3,45,82&#10;STU003,3,28,31"></textarea>
-        <button class="btn" style="margin-top:10px;" onclick="parsePasted()">Process pasted data</button>
+      <div class="card">
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropFile(event)">
+          <div class="upload-icon">↑</div>
+          <p class="upload-text">Click to upload or drag and drop your CSV</p>
+          <p class="upload-sub">StudentID · Grade · EnglishPercentile · SpanishPercentile</p>
+        </div>
+        <input type="file" id="file-input" accept=".csv" style="display:none;" onchange="handleFile(event)">
+        <div id="upload-status" style="display:none;padding:10px 14px;border-radius:8px;font-size:12px;margin-top:8px;"></div>
+        <div style="margin-top:1rem;">
+          <label>Or paste CSV data directly</label>
+          <textarea id="paste-area" rows="5" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:7px;font-family:monospace;font-size:11px;color:var(--charcoal);background:var(--cream);resize:vertical;outline:none;" placeholder="StudentID,Grade,EnglishPercentile,SpanishPercentile&#10;STU001,3,62,78&#10;STU002,3,45,82"></textarea>
+          <button class="btn" style="margin-top:10px;" onclick="parsePasted()">Process pasted data</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- DASHBOARD TAB -->
-  <div class="panel" id="panel-dashboard">
-    <div id="dashboard-empty" style="text-align:center;padding:3rem 1rem;">
-      <p style="font-size:14px;color:var(--muted);">No class data yet. Upload a roster or analyze an individual student first.</p>
+    <!-- DASHBOARD -->
+    <div class="panel" id="panel-dashboard">
+      <div id="dashboard-empty" style="text-align:center;padding:3rem 1rem;"><p style="font-size:13px;color:var(--charcoal-soft);">No class data yet. Upload a roster or analyze individual students first.</p></div>
+      <div id="dashboard-content" style="display:none;">
+        <div class="summary-grid" id="summary-grid"></div>
+        <p class="sec-label">Biliteracy scatter plot — click any student dot to open their full profile</p>
+        <div class="plot-wrap">
+          <div class="plot-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:var(--sage);"></span>Spanish dominant</span>
+            <span class="legend-item"><span class="legend-dot" style="background:var(--terra);"></span>English dominant</span>
+            <span class="legend-item"><span class="legend-dot" style="background:var(--charcoal-soft);"></span>Balanced / Emerging</span>
+          </div>
+          <div class="plot-canvas-wrap" id="plot-wrap">
+            <canvas id="scatter-canvas"></canvas>
+            <div class="student-tooltip" id="tooltip"></div>
+          </div>
+          <p style="font-size:10px;color:var(--charcoal-soft);margin-top:6px;">X: English percentile · Y: Spanish percentile · Cross-hair at 50th percentile in both languages</p>
+        </div>
+        <div style="display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;">
+          <button class="btn btn-gold btn-sm" onclick="downloadScatterPlot()">Download scatter plot (PNG)</button>
+          <button class="btn btn-outline btn-sm" onclick="exportCSV()">Export class data (CSV)</button>
+        </div>
+        <p class="sec-label">Full class roster</p>
+        <div class="card" style="padding:0;overflow:hidden;">
+          <table class="class-table">
+            <thead><tr><th>Student ID</th><th>Grade</th><th>English</th><th>Spanish</th><th>Dominant Language</th><th>Zone</th><th>Tier</th></tr></thead>
+            <tbody id="class-tbody"></tbody>
+          </table>
+        </div>
+        <div id="clicked-profile" style="margin-top:1.5rem;"></div>
+      </div>
     </div>
-    <div id="dashboard-content" style="display:none;">
-      <div class="summary-grid" id="summary-grid"></div>
-      <p class="sec-label">Class roster — Biliteracy Compass results</p>
-      <div class="card" style="padding:0;overflow:hidden;">
-        <table class="class-table" id="class-table">
-          <thead>
-            <tr>
-              <th>Student ID</th>
-              <th>Grade</th>
-              <th>English %ile</th>
-              <th>Spanish %ile</th>
-              <th>Dominant Language</th>
-              <th>Zone</th>
-              <th>Tier</th>
-              <th>Next Step</th>
-            </tr>
-          </thead>
-          <tbody id="class-tbody"></tbody>
+
+    <!-- REFERENCE -->
+    <div class="panel" id="panel-reference">
+      <p class="sec-label">Score conversion reference</p>
+      <div class="card">
+        <p style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:4px;">MAP RIT to Percentile (Reading)</p>
+        <p class="hint" style="margin-bottom:10px;">Source: NWEA 2020 RIT Score Norms. Verify against your district's current norms table.</p>
+        <table class="ref-table">
+          <thead><tr><th>Grade</th><th>RIT at 40th</th><th>RIT at 50th</th><th>RIT at 60th</th></tr></thead>
+          <tbody>
+            <tr><td>K</td><td>140</td><td>146</td><td>152</td></tr>
+            <tr><td>1</td><td>158</td><td>165</td><td>171</td></tr>
+            <tr><td>2</td><td>170</td><td>177</td><td>183</td></tr>
+            <tr><td>3</td><td>180</td><td>188</td><td>194</td></tr>
+            <tr><td>4</td><td>188</td><td>196</td><td>202</td></tr>
+            <tr><td>5</td><td>194</td><td>203</td><td>209</td></tr>
+          </tbody>
         </table>
       </div>
-      <button class="btn btn-outline" onclick="exportCSV()">Export results as CSV</button>
-    </div>
-  </div>
-
-  <!-- REFERENCE TAB -->
-  <div class="panel" id="panel-reference">
-    <p class="sec-label">Score conversion reference</p>
-    <div class="card">
-      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:4px;font-weight:500;">MAP RIT → Percentile (English Reading)</p>
-      <p class="hint" style="margin-bottom:10px;">Source: NWEA 2020 RIT Score Norms. Always verify against your district's current norms table.</p>
-      <table class="ref-table">
-        <thead><tr><th>Grade</th><th>RIT @ 40th %ile</th><th>RIT @ 50th %ile</th><th>RIT @ 60th %ile</th></tr></thead>
-        <tbody>
-          <tr><td>K</td><td>140</td><td>146</td><td>152</td></tr>
-          <tr><td>1</td><td>158</td><td>165</td><td>171</td></tr>
-          <tr><td>2</td><td>170</td><td>177</td><td>183</td></tr>
-          <tr><td>3</td><td>180</td><td>188</td><td>194</td></tr>
-          <tr><td>4</td><td>188</td><td>196</td><td>202</td></tr>
-          <tr><td>5</td><td>194</td><td>203</td><td>209</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card">
-      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:4px;font-weight:500;">Lexile → Approximate Percentile</p>
-      <p class="hint" style="margin-bottom:10px;">Approximate conversions. Use Metametrics lexile.com for Spanish Lexile bands (Lectura).</p>
-      <table class="ref-table">
-        <thead><tr><th>Grade</th><th>Lexile ~40th %ile</th><th>Lexile ~50th %ile</th><th>Lexile ~60th %ile</th></tr></thead>
-        <tbody>
-          <tr><td>K</td><td>BR–100L</td><td>100–200L</td><td>200–300L</td></tr>
-          <tr><td>1</td><td>200–400L</td><td>400–500L</td><td>500–600L</td></tr>
-          <tr><td>2</td><td>400–600L</td><td>600–700L</td><td>700–800L</td></tr>
-          <tr><td>3</td><td>600–800L</td><td>800–900L</td><td>900–1000L</td></tr>
-          <tr><td>4</td><td>800–900L</td><td>900–1000L</td><td>1000–1100L</td></tr>
-          <tr><td>5</td><td>900–1000L</td><td>1000–1100L</td><td>1100–1200L</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card">
-      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:8px;font-weight:500;">Tier thresholds — how the Compass calculates placement</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-        <div style="padding:10px 12px;background:var(--teal-pale);border-radius:8px;">
-          <p style="font-size:11px;font-weight:500;color:var(--teal-deep);margin-bottom:4px;">THRIVING</p>
-          <p style="font-size:12px;color:var(--teal-mid);">At or above 50th percentile in both languages</p>
+      <div class="card">
+        <p style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:4px;">Lexile to Approximate Percentile</p>
+        <p class="hint" style="margin-bottom:10px;">Use Metametrics lexile.com for Spanish Lectura Lexile bands.</p>
+        <table class="ref-table">
+          <thead><tr><th>Grade</th><th>Lexile at 40th</th><th>Lexile at 50th</th><th>Lexile at 60th</th></tr></thead>
+          <tbody>
+            <tr><td>K</td><td>BR-100L</td><td>100-200L</td><td>200-300L</td></tr>
+            <tr><td>1</td><td>200-400L</td><td>400-500L</td><td>500-600L</td></tr>
+            <tr><td>2</td><td>400-600L</td><td>600-700L</td><td>700-800L</td></tr>
+            <tr><td>3</td><td>600-800L</td><td>800-900L</td><td>900-1000L</td></tr>
+            <tr><td>4</td><td>800-900L</td><td>900-1000L</td><td>1000-1100L</td></tr>
+            <tr><td>5</td><td>900-1000L</td><td>1000-1100L</td><td>1100-1200L</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <p style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:8px;">Tier thresholds</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div style="padding:10px 12px;background:var(--sage-light);border-radius:8px;"><p style="font-size:10px;font-weight:500;color:var(--sage-dark);margin-bottom:4px;">THRIVING</p><p style="font-size:11px;color:var(--sage);">At or above 50th percentile in both languages</p></div>
+          <div style="padding:10px 12px;background:var(--gold-light);border-radius:8px;"><p style="font-size:10px;font-weight:500;color:var(--gold-dark);margin-bottom:4px;">WATCH</p><p style="font-size:11px;color:var(--gold-dark);">40th-49th percentile in one or both languages</p></div>
+          <div style="padding:10px 12px;background:var(--terra-light);border-radius:8px;"><p style="font-size:10px;font-weight:500;color:var(--terra-dark);margin-bottom:4px;">INTERVENE</p><p style="font-size:11px;color:var(--terra);">Below 40th percentile in both languages</p></div>
         </div>
-        <div style="padding:10px 12px;background:var(--amber-pale);border-radius:8px;">
-          <p style="font-size:11px;font-weight:500;color:var(--amber);margin-bottom:4px;">WATCH</p>
-          <p style="font-size:12px;color:#633806;">40th–49th percentile in one or both languages</p>
-        </div>
-        <div style="padding:10px 12px;background:var(--coral-pale);border-radius:8px;">
-          <p style="font-size:11px;font-weight:500;color:var(--coral);margin-bottom:4px;">INTERVENE</p>
-          <p style="font-size:12px;color:#4A1B0C;">Below 40th percentile in both languages</p>
-        </div>
+        <p class="hint" style="margin-top:10px;">Thresholds aligned to NWEA grade-level performance definitions and dual language biliteracy benchmarks (Howard et al., 2018).</p>
+      </div>
+      <div class="card">
+        <p style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:6px;">Research base</p>
+        <p class="hint" style="line-height:1.9;">Amplify (2024). Dual-language literacy assessment study. · Butvilofsky et al. (2021). Biliteracy writing assessment and translanguaging. · Collier and Thomas (2017). Dual language program outcomes. · del Castillo-Perez and Stearns Cloat (2025). Cross-linguistic connections in biliteracy. · Escamilla, K. (2013). Biliteracy from the start: Literacy Squared in action. · Escamilla and Hopewell (2010). Transitions to biliteracy. · Garcia, O. (2008). Bilingual education in the 21st century. · Garcia and Wei (2014). Translanguaging: Language, bilingualism and education. · Howard et al. (2018). Guiding principles for dual language education (3rd ed.). · Johnson, Garcia and Seltzer (2019). The translanguaging classroom. · Valenzuela, A. (1999). Subtractive schooling. · Vergara, K. (2023). Principal mindset toward Latine emergent bilingual students [Doctoral dissertation]. University of St. Thomas.</p>
       </div>
     </div>
-    <div class="card">
-      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:4px;font-weight:500;">How dominant language is calculated</p>
-      <p class="hint">The Compass calculates dominant language from your data — no manual entry needed. If Spanish percentile exceeds English by more than 10 points, the student is Spanish Dominant. If English exceeds Spanish by more than 10 points, English Dominant. Within 10 points of each other = Balanced/Emerging.</p>
-    </div>
   </div>
 
-</div>
-
-<div class="footer">
-  <p class="footer-brand">The Biliteracy Architect</p>
-  <p class="footer-copy">© Dr. Kathy Vergara, EdD · Biliterate by Design · Pilot Version 1.0 · All rights reserved.</p>
+  <div class="footer">
+    <p class="footer-brand">The Biliteracy Architect</p>
+    <div class="footer-rule"></div>
+    <p class="footer-copy">© 2026 Dr. Kathy Vergara, EdD · Biliterate by Design · All rights reserved.</p>
+  </div>
 </div>
 
 <script>
-// ─── DATA ────────────────────────────────────────────────────────────────────
-const STRATEGIES = {
-  E: {
-    zone: 'Advanced Biliteracy',
-    direction: 'East',
-    general: [
-      'Assign complex bilingual texts that require cross-linguistic analysis and comparison',
-      'Use metalinguistic tasks: have students analyze how the same concept is expressed differently in each language',
-      'Design collaborative academic discussions that require switching between languages with purpose',
-      'Assign bilingual research projects where students must synthesize information from sources in both languages'
-    ],
-    action: 'This student is performing above the 50th percentile in both languages. The instructional focus is academic rigor in both English and Spanish — complex texts, higher-order tasks, and metalinguistic extension. Do not reduce challenge. Push for depth, critical analysis, and authentic biliteracy production.',
-    gradeBands: {
-      'K-1': 'Focus on phonemic awareness in both languages simultaneously. Use bilingual shared reading with author\'s chair in both languages. Celebrate early writing attempts in both languages equally.',
-      '2-3': 'Introduce genre study in both languages. Use side-by-side text comparisons. Assign bilingual book reports where students compare how authors use language differently.',
-      '4-5': 'Engage students in cross-linguistic research and argumentation. Assign formal writing tasks in both languages with contrastive analysis feedback. Consider peer mentorship roles.'
-    }
-  },
-  N: {
-    zone: 'Spanish Dominant',
-    direction: 'North',
-    general: [
-      'Use the Bridge strategy: after instruction in Spanish, explicitly transfer key concepts and vocabulary to English',
-      'Leverage cognates systematically — create bilingual cognate walls visible in both language zones',
-      'Provide sentence frames and academic language scaffolds in English specifically',
-      'Use Preview-View-Review: preview in Spanish, deliver content in English, review and reflect in Spanish'
-    ],
-    action: 'This student has clear Spanish strength. The instructional priority is English language acceleration — not by subtracting Spanish, but by using Spanish as the bridge. Every lesson in English should connect back to what the student already knows in Spanish. The goal is additive bilingualism.',
-    gradeBands: {
-      'K-1': 'Build English phonics alongside Spanish phonics. Use bilingual decodable books. Celebrate Spanish literacy as the foundation — make the transfer explicit and joyful.',
-      '2-3': 'Focus on English academic vocabulary in content areas. Use bilingual anchor charts. Teach students to self-monitor: "Do I know this word in Spanish? How does that help me in English?"',
-      '4-5': 'Develop English academic writing with explicit sentence-level scaffolds. Use contrastive analysis: teach students how Spanish syntax differs from English. Build English reading stamina with high-interest texts.'
-    }
-  },
-  S: {
-    zone: 'English Dominant',
-    direction: 'South',
-    general: [
-      'Audit daily Spanish instructional minutes — protect and expand dedicated Spanish time immediately',
-      'Use authentic Spanish texts — literatura infantil, libros informativos — not translated English books',
-      'Build Spanish academic vocabulary intentionally with visual supports and word walls in Spanish',
-      'Create Spanish-only zones and routines where Spanish is the language of academic discourse'
-    ],
-    action: 'This student has English dominance. Spanish development has likely been reduced or deprioritized. The instructional priority is Spanish language acceleration — authentic, rigorous, and culturally rooted Spanish instruction. Audit how much real Spanish academic instruction this student receives daily. The answer is usually less than reported.',
-    gradeBands: {
-      'K-1': 'Use Spanish nursery rhymes, cuentos, and songs to build phonemic awareness in Spanish. Read aloud daily in Spanish. Celebrate Spanish at home — send books home in Spanish.',
-      '2-3': 'Use Spanish literature circles with authentic texts. Build Spanish writing through journaling and personal narratives. Connect Spanish learning to students\' family stories and cultural identity.',
-      '4-5': 'Assign Spanish research projects on topics of cultural relevance. Use Spanish-language informational texts at grade level. Develop Spanish academic writing with mentor texts by Latinx authors.'
-    }
-  },
-  W: {
-    zone: 'Developing Biliteracy',
-    direction: 'West',
-    general: [
-      'Deliver content intervention in the student\'s dominant language — do not split focus across two languages simultaneously',
-      'Build background knowledge and conceptual understanding in the dominant language before introducing in the second',
-      'Use visual supports, realia, and graphic organizers to make content comprehensible across both languages',
-      'Prioritize oral language development in both languages before pushing written production'
-    ],
-    action: 'This student needs content intervention. Both percentiles are below the 40th. Lean into the dominant language for instruction — this is not a retreat from biliteracy, it is the research-based path to biliteracy. Conceptual understanding in the dominant language transfers. Do not fragment instruction across two languages simultaneously when a student is in the intervention zone.',
-    gradeBands: {
-      'K-1': 'Focus on foundational phonics in the dominant language first. Use predictable books and patterned text. Build oral language through structured conversation routines. Assess frequently — every 4–6 weeks.',
-      '2-3': 'Use strategic small group instruction in the dominant language. Build reading fluency and comprehension before adding second-language reading demands. Monitor closely for reading disabilities — bilingual students are frequently under-identified.',
-      '4-5': 'Provide intensive reading support in the dominant language. Use content-based instruction — science and social studies content as the vehicle for literacy development. Re-assess every 6–8 weeks and adjust placement promptly.'
-    }
+const ACCESS_CODE='PILOT2026';
+
+function checkCode(){
+  const val=document.getElementById('land-code').value.trim().toUpperCase();
+  const err=document.getElementById('land-error');
+  if(val===ACCESS_CODE){
+    document.getElementById('screen-landing').classList.remove('active');
+    document.getElementById('screen-app').classList.add('active');
+    sessionStorage.setItem('compass-access','1');
+    window.scrollTo(0,0);
+  } else {
+    err.textContent='Incorrect access code. Please try again or contact Dr. Vergara.';
+    document.getElementById('land-code').value='';
   }
+}
+
+function showLanding(){
+  document.getElementById('screen-app').classList.remove('active');
+  document.getElementById('screen-landing').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+if(sessionStorage.getItem('compass-access')==='1'){
+  document.getElementById('screen-landing').classList.remove('active');
+  document.getElementById('screen-app').classList.add('active');
+}
+
+const STRATEGIES={
+  E:{zone:'Advanced Biliteracy',direction:'East',
+    general:['Use metalinguistic comparison tasks where students analyze how the same concept is expressed differently in each language (Garcia, 2008)','Assign complex bilingual texts requiring synthesis across both languages, supporting the academic achievement pillar of dual language programs (Howard et al., 2018)','Design academic discussions requiring purposeful movement between languages, reinforcing translanguaging as a cognitive strength (Garcia and Wei, 2014)','Provide bilingual research and writing projects where students select language purposefully based on audience and context (Escamilla, 2013)'],
+    action:'This student is performing at or above the 50th percentile in both languages, reflecting the bilingualism and biliteracy pillar of dual language program goals (Howard et al., 2018). Research on longitudinal dual language outcomes indicates that sustaining high expectations in both languages at this stage is critical to continued biliterate development (Collier and Thomas, 2017). The instructional focus is academic rigor and intentional metalinguistic development in both languages.',
+    citations:'Howard et al. (2018); Collier and Thomas (2017); Garcia and Wei (2014); Escamilla (2013)',
+    gradeBands:{'K-1':'Build phonemic awareness in both languages simultaneously through structured routines. Use bilingual shared reading with equal celebration of both languages. Early simultaneous biliteracy development supports stronger long-term outcomes (Escamilla et al., 2014).','2-3':'Introduce genre study in both languages using parallel texts. Guide students in comparing how authors use language differently in Spanish and English. Side-by-side text analysis develops metalinguistic awareness (Garcia, 2008).','4-5':'Engage students in cross-linguistic argumentation and research. Assign formal writing tasks in both languages with contrastive analysis as part of the feedback process.'},
+    nextSteps:[{t:'Select two complex texts this week, one per language',s:'Choose texts addressing the same concept so students can engage in metalinguistic comparison across both.'},{t:'Design a Bridge activity by week 2',s:'After a lesson in one language, have students reflect and summarize in the other. Make the transfer explicit.'},{t:'Introduce a bilingual research project by week 3',s:'Students select their language of presentation based on audience. Honor both choices equally.'},{t:'Add a metalinguistic discussion routine by week 4',s:'Ask: How would you say this in Spanish? How is that different from English? Why does that difference matter?'},{t:'Reassess at week 6 to document continued growth',s:'Progress monitor in both languages. Document evidence of metalinguistic development alongside reading scores.'}]},
+  N:{zone:'Spanish Dominant',direction:'North',
+    general:['Use the Bridge strategy to explicitly transfer key concepts and academic vocabulary from Spanish to English, leveraging existing linguistic knowledge (Escamilla and Hopewell, 2010)','Systematically teach cognates across both languages to accelerate English academic vocabulary development (Garcia, 2008)','Provide sentence frames and academic language scaffolds in English that parallel structures the student already controls in Spanish','Use Preview-View-Review: preview in Spanish, deliver content in English, review in Spanish, supporting cross-linguistic transfer (Howard et al., 2018)'],
+    action:'This student demonstrates strength in Spanish and is developing English proficiency. Research on additive bilingualism indicates that Spanish literacy is a cognitive and linguistic asset that directly supports English development when instruction is designed to leverage cross-linguistic transfer (Escamilla and Hopewell, 2010; Collier and Thomas, 2017). The instructional priority is English language acceleration through intentional bridging, not through reduction of Spanish instructional time.',
+    citations:'Escamilla and Hopewell (2010); Collier and Thomas (2017); Garcia (2008); del Castillo-Perez and Stearns Cloat (2025)',
+    gradeBands:{'K-1':'Build English phonics alongside Spanish phonics using explicit transfer instruction. Use bilingual decodable readers. Celebrate Spanish literacy as the cognitive foundation for English development.','2-3':'Focus on English academic vocabulary in content areas using bilingual anchor charts. Teach students to use their Spanish knowledge as a self-monitoring strategy when encountering English text.','4-5':'Develop English academic writing using sentence-level scaffolds that parallel Spanish structures the student already controls. Use contrastive analysis to make grammatical differences visible and learnable.'},
+    nextSteps:[{t:'Identify five high-frequency cognates this week',s:'Build a cognate wall visible in both language zones. Make cross-linguistic connections explicit and daily.'},{t:'Design a Preview-View-Review lesson by week 2',s:'Preview in Spanish, deliver in English, review in Spanish. Note what transfers naturally.'},{t:'Add English sentence frames to current unit by week 2',s:'Identify the academic structures the student controls in Spanish and build parallel English frames.'},{t:'Plan a Bridge writing activity by week 3',s:'After a Spanish literacy lesson, have the student write a brief summary in English. Celebrate the transfer.'},{t:'Progress monitor English specifically at week 6',s:'Track English percentile movement. Adjust instructional intensity based on response to cross-linguistic strategies.'}]},
+  S:{zone:'English Dominant',direction:'South',
+    general:['Audit and protect dedicated Spanish instructional minutes. Research indicates subtractive practices, where Spanish time is reduced, undermine biliteracy development (Valenzuela, 1999)','Use authentic Spanish texts developed from Spanish literary traditions, not translated from English materials (Escamilla, 2013)','Build Spanish academic vocabulary with structured routines and bilingual word walls that position Spanish as the language of academic discourse','Integrate cross-linguistic transfer strategies that leverage English strength to accelerate Spanish development (del Castillo-Perez and Stearns Cloat, 2025)'],
+    action:'This student demonstrates stronger performance in English than in Spanish. Research on subtractive schooling patterns indicates that English dominance in bilingual program students may reflect reduced access to authentic, rigorous Spanish instruction over time (Valenzuela, 1999; Escamilla, 2013). A 2024 study of over 212,000 multilingual learners found that English-only assessment approaches significantly overidentify multilingual learners as at-risk, underscoring the need to assess and instruct in both languages (Amplify, 2024). The instructional priority is Spanish language acceleration through authentic, standards-aligned instruction.',
+    citations:'Valenzuela (1999); Escamilla (2013); Amplify (2024); del Castillo-Perez and Stearns Cloat (2025)',
+    gradeBands:{'K-1':'Use Spanish literature, cuentos, and oral language routines to build early literacy in Spanish. Read aloud daily using authentic culturally rooted texts. Connect Spanish learning to students home language and cultural knowledge.','2-3':'Use Spanish literature circles with authentic texts by Spanish-language authors. Build Spanish writing through personal narratives that honor students cultural and family stories.','4-5':'Assign Spanish research and writing projects on topics of cultural and academic relevance. Use Spanish-language informational texts at grade level. Develop Spanish academic writing using mentor texts by Latinx authors.'},
+    nextSteps:[{t:'Audit Spanish instructional minutes this week',s:'Document how many minutes of authentic Spanish academic instruction this student actually receives daily. Compare to your program model requirements.'},{t:'Introduce one authentic Spanish text this week',s:'Select a text by a Spanish-language author at grade level. Not a translation. Begin a Spanish read-aloud or literature circle routine.'},{t:'Build a Spanish academic word wall by week 2',s:'Position Spanish vocabulary as primary in the current content unit. Lead with Spanish terms on bilingual anchor charts.'},{t:'Plan one cross-linguistic transfer lesson by week 3',s:'Design a lesson where students use their English strength to access a Spanish concept. Make the bridge explicit.'},{t:'Reassess Spanish percentile at week 6',s:'Track Spanish percentile specifically. If movement occurs above the 40th percentile, adjust Compass placement accordingly.'}]},
+  W:{zone:'Developing Biliteracy',direction:'West',
+    general:['Deliver content instruction in the dominant language. Conceptual understanding built in the dominant language transfers across languages when cross-linguistic instruction is intentional (Collier and Thomas, 2017)','Build background knowledge in the dominant language before introducing parallel content in the second language','Use visual supports, graphic organizers, and realia to make academic content comprehensible across both language contexts','Prioritize oral language development in both languages as a foundation for reading and writing development (Escamilla et al., 2014)'],
+    action:'This student is performing below the 40th percentile in both languages, indicating a need for targeted content support. Research on effective biliteracy intervention emphasizes building conceptual understanding in the dominant language as the foundation for cross-linguistic transfer (Collier and Thomas, 2017). A 2021 study found that students who scored as at-risk on English-only assessments demonstrated grade-level writing skills when allowed to use their full linguistic repertoire (Butvilofsky et al., 2021). Instruction should lean into the students linguistic strengths. Frequent progress monitoring every 4-6 weeks is recommended.',
+    citations:'Collier and Thomas (2017); Escamilla et al. (2014); Butvilofsky et al. (2021); Amplify (2024)',
+    gradeBands:{'K-1':'Focus on foundational phonics and oral language in the dominant language using structured, explicit routines. Use predictable books and patterned texts. Monitor closely every 4-6 weeks.','2-3':'Use strategic small group instruction in the dominant language focused on reading comprehension and fluency. Build content knowledge through structured conversation before written tasks.','4-5':'Provide intensive reading support in the dominant language using content-area texts. Set a progress monitoring schedule of every 6-8 weeks and adjust placement based on response to instruction.'},
+    nextSteps:[{t:'Identify the dominant language and confirm instructional alignment this week',s:'Verify that content instruction is being delivered primarily in this students dominant language. Misalignment is a common and correctable barrier.'},{t:'Add oral language routines in the dominant language by week 1',s:'Structured academic conversation in the dominant language builds the conceptual foundation for literacy development in both languages.'},{t:'Introduce visual supports for current content by week 2',s:'Graphic organizers, illustrated word walls, and realia reduce language load and make content comprehensible without sacrificing rigor.'},{t:'Set a progress monitoring schedule by week 2',s:'Commit to reassessing every 4-6 weeks in both languages. Document baseline scores now so growth is measurable.'},{t:'Review screening and intervention documentation by week 3',s:'Ensure this student has been appropriately screened for language-based learning differences. Bilingual students are frequently underidentified (Collier and Thomas, 2017).'}]}
 };
 
-let classData = [];
+let classData=[];
 
-// ─── LOGIC ───────────────────────────────────────────────────────────────────
-function calcDominant(eng, spa) {
-  const diff = spa - eng;
-  if (diff > 10) return 'Spanish';
-  if (diff < -10) return 'English';
-  return 'Balanced / Emerging';
-}
+function calcDominant(e,s){const d=s-e;if(d>10)return'Spanish';if(d<-10)return'English';return'Balanced / Emerging';}
+function calcZone(e,s){if(e>=50&&s>=50)return'E';if(e<40&&s<40)return'W';if(s>=e)return'N';return'S';}
+function calcTier(e,s){if(e>=50&&s>=50)return'Thriving';if(e<40&&s<40)return'Intervene';return'Watch';}
+function getGradeBand(g){if(g==='K'||g==='1')return'K-1';if(g==='2'||g==='3')return'2-3';return'4-5';}
+function dirLabel(d){return{E:'East',N:'North',S:'South',W:'West'}[d];}
 
-function calcZone(eng, spa) {
-  const bothAbove50 = eng >= 50 && spa >= 50;
-  const bothBelow40 = eng < 40 && spa < 40;
-  if (bothAbove50) return 'E';
-  if (bothBelow40) return 'W';
-  if (spa >= eng) return 'N';
-  return 'S';
-}
-
-function calcTier(eng, spa) {
-  if (eng >= 50 && spa >= 50) return 'Thriving';
-  if (eng < 40 && spa < 40) return 'Intervene';
-  return 'Watch';
-}
-
-function getGradeBand(grade) {
-  if (grade === 'K' || grade === '1') return 'K-1';
-  if (grade === '2' || grade === '3') return '2-3';
-  return '4-5';
-}
-
-function dirLabel(d) {
-  return {E:'East',N:'North',S:'South',W:'West'}[d];
-}
-
-// ─── COMPASS CANVAS ──────────────────────────────────────────────────────────
-function drawCompass(canvasId, direction) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const cx = 80, cy = 80, r = 66;
-  ctx.clearRect(0, 0, 160, 160);
-
-  const zones = [
-    {dir:'N',angle:-90,fill:'#E1F5EE',stroke:'#1D9E75'},
-    {dir:'E',angle:0,  fill:'#EEEDFE',stroke:'#7F77DD'},
-    {dir:'S',angle:90, fill:'#FAEEDA',stroke:'#BA7517'},
-    {dir:'W',angle:180,fill:'#FAECE7',stroke:'#993C1D'},
+function drawCompass(canvasId,direction){
+  const canvas=document.getElementById(canvasId);if(!canvas)return;
+  const ctx=canvas.getContext('2d');const cx=80,cy=80,r=66;
+  ctx.clearRect(0,0,160,160);
+  const zones=[
+    {dir:'N',angle:-90,fill:'#e8f0eb',stroke:'#6E8F7A'},
+    {dir:'E',angle:0,fill:'#e0f0f1',stroke:'#4B8A8E'},
+    {dir:'S',angle:90,fill:'#faeee6',stroke:'#D67852'},
+    {dir:'W',angle:180,fill:'#F4E7D2',stroke:'#C8A25A'},
   ];
-
-  zones.forEach(z => {
-    const active = z.dir === direction;
-    const sa = (z.angle - 45) * Math.PI / 180;
-    const ea = (z.angle + 45) * Math.PI / 180;
-    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,sa,ea); ctx.closePath();
-    ctx.fillStyle = active ? z.fill : '#f2f2f0';
-    ctx.fill();
-    ctx.strokeStyle = active ? z.stroke : '#e0e0db';
-    ctx.lineWidth = active ? 2 : 0.5;
-    ctx.stroke();
-
-    const lx = cx + r*0.62*Math.cos(z.angle*Math.PI/180);
-    const ly = cy + r*0.62*Math.sin(z.angle*Math.PI/180);
-    ctx.fillStyle = active ? z.stroke : '#ccc';
-    ctx.font = active ? '500 10px DM Sans,sans-serif' : '400 9px DM Sans,sans-serif';
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(z.dir, lx, ly);
+  zones.forEach(z=>{
+    const active=z.dir===direction;
+    const sa=(z.angle-45)*Math.PI/180,ea=(z.angle+45)*Math.PI/180;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,sa,ea);ctx.closePath();
+    ctx.fillStyle=active?z.fill:'#f5f3ef';ctx.fill();
+    ctx.strokeStyle=active?z.stroke:'#ddd8cf';ctx.lineWidth=active?2:0.5;ctx.stroke();
+    const lx=cx+r*0.62*Math.cos(z.angle*Math.PI/180),ly=cy+r*0.62*Math.sin(z.angle*Math.PI/180);
+    ctx.fillStyle=active?z.stroke:'#bbb';
+    ctx.font=active?'500 10px Poppins,sans-serif':'400 9px Poppins,sans-serif';
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(z.dir,lx,ly);
   });
-
-  ctx.beginPath(); ctx.arc(cx,cy,9,0,2*Math.PI);
-  ctx.fillStyle = '#085041'; ctx.fill();
-
-  if (direction) {
-    const dm = {N:-90,E:0,S:90,W:180};
-    const ang = dm[direction]*Math.PI/180;
+  ctx.beginPath();ctx.arc(cx,cy,9,0,2*Math.PI);ctx.fillStyle='#2D2D29';ctx.fill();
+  if(direction){
+    const dm={N:-90,E:0,S:90,W:180};const ang=dm[direction]*Math.PI/180;
     ctx.beginPath();
-    ctx.moveTo(cx+26*Math.cos(ang), cy+26*Math.sin(ang));
-    ctx.lineTo(cx+5*Math.cos(ang+Math.PI/2), cy+5*Math.sin(ang+Math.PI/2));
-    ctx.lineTo(cx+5*Math.cos(ang-Math.PI/2), cy+5*Math.sin(ang-Math.PI/2));
-    ctx.closePath();
-    ctx.fillStyle = '#085041'; ctx.fill();
+    ctx.moveTo(cx+26*Math.cos(ang),cy+26*Math.sin(ang));
+    ctx.lineTo(cx+5*Math.cos(ang+Math.PI/2),cy+5*Math.sin(ang+Math.PI/2));
+    ctx.lineTo(cx+5*Math.cos(ang-Math.PI/2),cy+5*Math.sin(ang-Math.PI/2));
+    ctx.closePath();ctx.fillStyle='#2D2D29';ctx.fill();
   }
 }
 
-// ─── PROFILE HTML ─────────────────────────────────────────────────────────────
-function buildProfile(student, idx) {
-  const {id, grade, eng, spa} = student;
-  const zone = calcZone(eng, spa);
-  const tier = calcTier(eng, spa);
-  const dominant = calcDominant(eng, spa);
-  const band = getGradeBand(grade);
-  const S = STRATEGIES[zone];
-  const tierClass = tier === 'Thriving' ? 'tier-thriving' : tier === 'Watch' ? 'tier-watch' : 'tier-intervene';
-  const canvasId = 'compass-' + idx;
-  const gradeLabel = grade === 'K' ? 'Kindergarten' : 'Grade ' + grade;
+function buildProfile(student,idx,showClose){
+  const{id,grade,eng,spa}=student;
+  const zone=calcZone(eng,spa),tier=calcTier(eng,spa),dominant=calcDominant(eng,spa);
+  const band=getGradeBand(grade),S=STRATEGIES[zone];
+  const tierClass=tier==='Thriving'?'tier-thriving':tier==='Watch'?'tier-watch':'tier-intervene';
+  const canvasId='compass-'+idx;
+  const gradeLabel=grade==='K'?'Kindergarten':'Grade '+grade;
+  const stratItems=S.general.map(s=>`<div class="strat-item">${s}</div>`).join('');
+  const nextItems=S.nextSteps.map((n,i)=>`<div class="next-step"><div class="next-num">${i+1}</div><div><p class="next-text">${n.t}</p><p class="next-sub">${n.s}</p></div></div>`).join('');
+  const closeBtn=showClose?`<button onclick="document.getElementById('clicked-profile').innerHTML='';document.getElementById('clicked-profile').scrollIntoView({behavior:'smooth'})" style="font-size:10px;color:var(--charcoal-soft);border:0.5px solid var(--border);background:none;padding:4px 10px;border-radius:5px;cursor:pointer;margin-top:4px;font-family:Poppins,sans-serif;">Close profile</button>`:'';
+  const downloadBtn=`<button onclick="downloadProfile('${idx}')" class="btn btn-gold btn-sm" style="margin-top:4px;">Download profile (PDF)</button>`;
 
-  const stratItems = S.general.map(s => `<div class="strat-item">${s}</div>`).join('');
-
-  return `
-  <div class="profile-card zone-${zone}">
+  return`<div class="profile-card zone-${zone}" id="profile-${idx}">
     <div class="profile-header">
-      <div>
-        <p class="profile-student">${id}</p>
-        <p class="profile-grade">${gradeLabel} · ${dominant} dominant</p>
-      </div>
+      <div><p class="profile-student">${id}</p><p class="profile-grade">${gradeLabel} · ${dominant} dominant</p><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;">${downloadBtn}${closeBtn}</div></div>
       <span class="zone-badge">${S.zone}</span>
     </div>
     <div class="profile-body">
       <div class="profile-compass-col">
         <canvas id="${canvasId}" width="160" height="160"></canvas>
-        <p class="zone-name">${dirLabel(zone)}</p>
+        <p class="zone-name-lbl">${dirLabel(zone)}</p>
         <span class="zone-tier ${tierClass}">${tier}</span>
       </div>
       <div class="profile-info-col">
@@ -539,190 +616,237 @@ function buildProfile(student, idx) {
     <div class="strat-section strat-${zone}">
       <p class="strat-label">Instructional next step</p>
       <div class="action-box">${S.action}</div>
+      <p class="citation">Research base: ${S.citations}</p>
       <p class="strat-label" style="margin-top:12px;">Research-based strategies</p>
       <div class="strat-grid">${stratItems}</div>
-      <p class="strat-label" style="margin-top:4px;">Grade-band focus · ${band}</p>
+      <p class="strat-label" style="margin-top:4px;">Grade-band focus: ${band}</p>
       <div class="grade-band-box">${S.gradeBands[band]}</div>
+    </div>
+    <div class="next-block zone-${zone}">
+      <p class="next-header">What's next: six-week action plan</p>
+      ${nextItems}
     </div>
   </div>`;
 }
 
-// ─── INDIVIDUAL ───────────────────────────────────────────────────────────────
-function analyzeIndividual() {
-  const id = document.getElementById('i-name').value.trim() || 'Student';
-  const grade = document.getElementById('i-grade').value;
-  const eng = parseInt(document.getElementById('i-eng').value);
-  const spa = parseInt(document.getElementById('i-spa').value);
+function downloadProfile(idx){
+  const el=document.getElementById('profile-'+idx);if(!el)return;
+  const orig=el.style.cssText;
+  el.style.maxWidth='100%';
+  window.print();
+  el.style.cssText=orig;
+}
 
-  if (!grade || isNaN(eng) || isNaN(spa)) { alert('Please complete all fields.'); return; }
-  if (eng < 1||eng > 99||spa < 1||spa > 99) { alert('Percentiles must be between 1 and 99.'); return; }
-
-  const student = {id, grade, eng, spa};
-  const html = buildProfile(student, 'ind');
-  document.getElementById('individual-result').innerHTML = html;
-  setTimeout(() => drawCompass('compass-ind', calcZone(eng, spa)), 50);
-
+function analyzeIndividual(){
+  const id=document.getElementById('i-name').value.trim()||'Student';
+  const grade=document.getElementById('i-grade').value;
+  const eng=parseInt(document.getElementById('i-eng').value);
+  const spa=parseInt(document.getElementById('i-spa').value);
+  if(!grade||isNaN(eng)||isNaN(spa)){alert('Please complete all fields.');return;}
+  if(eng<1||eng>99||spa<1||spa>99){alert('Percentiles must be between 1 and 99.');return;}
+  const student={id,grade,eng,spa};
+  document.getElementById('individual-result').innerHTML=buildProfile(student,'ind',false);
+  setTimeout(()=>drawCompass('compass-ind',calcZone(eng,spa)),50);
   addToClass(student);
   document.getElementById('individual-result').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-// ─── CLASS UPLOAD ─────────────────────────────────────────────────────────────
-function downloadTemplate() {
-  const csv = 'StudentID,Grade,EnglishPercentile,SpanishPercentile\nSTU001,3,62,78\nSTU002,3,45,82\nSTU003,K,28,31\n';
-  const blob = new Blob([csv], {type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'biliteracy-compass-template.csv';
-  a.click();
+function downloadTemplate(){
+  const csv='StudentID,Grade,EnglishPercentile,SpanishPercentile\nSTU001,3,62,78\nSTU002,3,45,82\nSTU003,K,28,31\n';
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='biliteracy-compass-template.csv';a.click();
 }
 
-function dragOver(e) { e.preventDefault(); document.getElementById('upload-zone').classList.add('dragover'); }
-function dragLeave(e) { document.getElementById('upload-zone').classList.remove('dragover'); }
-function dropFile(e) {
-  e.preventDefault();
-  document.getElementById('upload-zone').classList.remove('dragover');
-  const file = e.dataTransfer.files[0];
-  if (file) processCSVFile(file);
-}
+function dragOver(e){e.preventDefault();document.getElementById('upload-zone').classList.add('dragover');}
+function dragLeave(e){document.getElementById('upload-zone').classList.remove('dragover');}
+function dropFile(e){e.preventDefault();document.getElementById('upload-zone').classList.remove('dragover');const f=e.dataTransfer.files[0];if(f)processCSVFile(f);}
+function handleFile(e){const f=e.target.files[0];if(f)processCSVFile(f);}
+function processCSVFile(f){const r=new FileReader();r.onload=e=>parseCSV(e.target.result);r.readAsText(f);}
+function parsePasted(){const t=document.getElementById('paste-area').value.trim();if(!t){alert('Please paste CSV data first.');return;}parseCSV(t);}
 
-function handleFile(e) {
-  const file = e.target.files[0];
-  if (file) processCSVFile(file);
-}
-
-function processCSVFile(file) {
-  const reader = new FileReader();
-  reader.onload = function(e) { parseCSV(e.target.result); };
-  reader.readAsText(file);
-}
-
-function parsePasted() {
-  const text = document.getElementById('paste-area').value.trim();
-  if (!text) { alert('Please paste CSV data first.'); return; }
-  parseCSV(text);
-}
-
-function parseCSV(text) {
-  const lines = text.trim().split('\n').map(l => l.trim()).filter(l => l);
-  if (lines.length < 2) { showUploadStatus('No data rows found. Check your CSV format.', false); return; }
-
-  const header = lines[0].toLowerCase().split(',').map(h => h.trim());
-  const idIdx = header.findIndex(h => h.includes('student') || h === 'id');
-  const gradeIdx = header.findIndex(h => h.includes('grade'));
-  const engIdx = header.findIndex(h => h.includes('english') || h === 'eng');
-  const spaIdx = header.findIndex(h => h.includes('spanish') || h === 'spa');
-
-  if (gradeIdx < 0 || engIdx < 0 || spaIdx < 0) {
-    showUploadStatus('Missing required columns. Need: Grade, EnglishPercentile, SpanishPercentile', false);
-    return;
+function parseCSV(text){
+  const lines=text.trim().split('\n').map(l=>l.trim()).filter(l=>l);
+  if(lines.length<2){showUploadStatus('No data rows found.',false);return;}
+  const header=lines[0].toLowerCase().split(',').map(h=>h.trim());
+  const idIdx=header.findIndex(h=>h.includes('student')||h==='id');
+  const gradeIdx=header.findIndex(h=>h.includes('grade'));
+  const engIdx=header.findIndex(h=>h.includes('english')||h==='eng');
+  const spaIdx=header.findIndex(h=>h.includes('spanish')||h==='spa');
+  if(gradeIdx<0||engIdx<0||spaIdx<0){showUploadStatus('Missing required columns: Grade, EnglishPercentile, SpanishPercentile',false);return;}
+  const students=[],errors=[];
+  for(let i=1;i<lines.length;i++){
+    const cols=lines[i].split(',').map(c=>c.trim());
+    const id=idIdx>=0?cols[idIdx]:'Student '+i;
+    const grade=cols[gradeIdx];const eng=parseInt(cols[engIdx]);const spa=parseInt(cols[spaIdx]);
+    if(!['K','1','2','3','4','5'].includes(grade)){errors.push('Row '+(i+1)+': invalid grade');continue;}
+    if(isNaN(eng)||eng<1||eng>99){errors.push('Row '+(i+1)+': invalid English percentile');continue;}
+    if(isNaN(spa)||spa<1||spa>99){errors.push('Row '+(i+1)+': invalid Spanish percentile');continue;}
+    students.push({id,grade,eng,spa});
   }
-
-  const students = [];
-  const errors = [];
-
-  for (let i = 1; i < lines.length; i++) {
-    const cols = lines[i].split(',').map(c => c.trim());
-    const id = idIdx >= 0 ? cols[idIdx] : 'Student ' + i;
-    const grade = cols[gradeIdx];
-    const eng = parseInt(cols[engIdx]);
-    const spa = parseInt(cols[spaIdx]);
-
-    const validGrades = ['K','1','2','3','4','5'];
-    if (!validGrades.includes(grade)) { errors.push(`Row ${i+1}: invalid grade "${grade}"`); continue; }
-    if (isNaN(eng)||eng<1||eng>99) { errors.push(`Row ${i+1}: invalid English percentile`); continue; }
-    if (isNaN(spa)||spa<1||spa>99) { errors.push(`Row ${i+1}: invalid Spanish percentile`); continue; }
-
-    students.push({id, grade, eng, spa});
-  }
-
-  if (students.length === 0) { showUploadStatus('No valid rows found. ' + errors.join(' | '), false); return; }
-
-  students.forEach(s => addToClass(s));
-  showUploadStatus(`✓ ${students.length} student${students.length>1?'s':''} processed successfully.${errors.length?' Skipped '+errors.length+' row(s).':''}`, true);
+  if(students.length===0){showUploadStatus('No valid rows found. '+errors.join(' | '),false);return;}
+  students.forEach(s=>addToClass(s));
+  showUploadStatus(students.length+' student'+(students.length>1?'s':'')+' processed.'+(errors.length?' Skipped '+errors.length+' row(s).':''),true);
   switchTab('dashboard');
 }
 
-function showUploadStatus(msg, success) {
-  const el = document.getElementById('upload-status');
-  el.style.display = 'block';
-  el.style.background = success ? 'var(--teal-pale)' : 'var(--coral-pale)';
-  el.style.color = success ? 'var(--teal-deep)' : 'var(--coral)';
-  el.textContent = msg;
+function showUploadStatus(msg,success){
+  const el=document.getElementById('upload-status');
+  el.style.display='block';
+  el.style.background=success?'var(--sage-light)':'var(--terra-light)';
+  el.style.color=success?'var(--sage-dark)':'var(--terra-dark)';
+  el.textContent=msg;
 }
 
-// ─── CLASS DATA ───────────────────────────────────────────────────────────────
-function addToClass(student) {
-  const exists = classData.findIndex(s => s.id === student.id);
-  if (exists >= 0) classData[exists] = student;
-  else classData.push(student);
+function addToClass(student){
+  const exists=classData.findIndex(s=>s.id===student.id);
+  if(exists>=0)classData[exists]=student;else classData.push(student);
   renderDashboard();
 }
 
-function renderDashboard() {
-  if (classData.length === 0) return;
-  document.getElementById('dashboard-empty').style.display = 'none';
-  document.getElementById('dashboard-content').style.display = 'block';
-
-  const counts = {E:0,N:0,S:0,W:0,Thriving:0,Watch:0,Intervene:0};
-  classData.forEach(s => {
-    counts[calcZone(s.eng,s.spa)]++;
-    counts[calcTier(s.eng,s.spa)]++;
-  });
-
-  document.getElementById('summary-grid').innerHTML = `
-    <div class="summary-card"><p class="summary-num" style="color:var(--teal-deep)">${counts.E}</p><p class="summary-lbl">Advanced Biliteracy</p></div>
-    <div class="summary-card"><p class="summary-num" style="color:var(--teal-mid)">${counts.N + counts.S}</p><p class="summary-lbl">Language Dominant</p></div>
-    <div class="summary-card"><p class="summary-num" style="color:var(--coral)">${counts.W}</p><p class="summary-lbl">Developing</p></div>
-    <div class="summary-card"><p class="summary-num" style="color:var(--ink-soft)">${classData.length}</p><p class="summary-lbl">Total students</p></div>
-  `;
-
-  const tbody = document.getElementById('class-tbody');
-  tbody.innerHTML = classData.map(s => {
-    const zone = calcZone(s.eng, s.spa);
-    const tier = calcTier(s.eng, s.spa);
-    const dom = calcDominant(s.eng, s.spa);
-    const S = STRATEGIES[zone];
-    const tierPill = tier === 'Thriving' ? 'pill-thriving' : tier === 'Watch' ? 'pill-watch' : 'pill-intervene';
-    const gradeLabel = s.grade === 'K' ? 'K' : s.grade;
-    const shortAction = S.action.split('.')[0] + '.';
-    return `<tr>
+function renderDashboard(){
+  if(classData.length===0)return;
+  document.getElementById('dashboard-empty').style.display='none';
+  document.getElementById('dashboard-content').style.display='block';
+  const counts={E:0,N:0,S:0,W:0};
+  classData.forEach(s=>counts[calcZone(s.eng,s.spa)]++);
+  document.getElementById('summary-grid').innerHTML=`
+    <div class="summary-card"><p class="summary-num" style="color:var(--teal-dark)">${counts.E}</p><p class="summary-lbl">Advanced Biliteracy</p></div>
+    <div class="summary-card"><p class="summary-num" style="color:var(--sage)">${counts.N+counts.S}</p><p class="summary-lbl">Language Dominant</p></div>
+    <div class="summary-card"><p class="summary-num" style="color:var(--terra)">${counts.W}</p><p class="summary-lbl">Developing</p></div>
+    <div class="summary-card"><p class="summary-num" style="color:var(--charcoal)">${classData.length}</p><p class="summary-lbl">Total students</p></div>`;
+  const tbody=document.getElementById('class-tbody');
+  tbody.innerHTML=classData.map(s=>{
+    const zone=calcZone(s.eng,s.spa),tier=calcTier(s.eng,s.spa),dom=calcDominant(s.eng,s.spa);
+    const S=STRATEGIES[zone];
+    const tierPill=tier==='Thriving'?'pill-thriving':tier==='Watch'?'pill-watch':'pill-intervene';
+    return`<tr>
       <td style="font-weight:500">${s.id}</td>
-      <td>${gradeLabel}</td>
-      <td>${s.eng}th</td>
-      <td>${s.spa}th</td>
+      <td>${s.grade==='K'?'K':s.grade}</td><td>${s.eng}th</td><td>${s.spa}th</td>
       <td>${dom}</td>
       <td><span class="pill pill-${zone}">${S.zone}</span></td>
       <td><span class="pill ${tierPill}">${tier}</span></td>
-      <td style="max-width:220px;line-height:1.4">${shortAction}</td>
     </tr>`;
   }).join('');
+  setTimeout(drawScatterPlot,100);
 }
 
-function exportCSV() {
-  const header = 'StudentID,Grade,EnglishPercentile,SpanishPercentile,DominantLanguage,Zone,Direction,Tier,NextStep\n';
-  const rows = classData.map(s => {
-    const zone = calcZone(s.eng,s.spa);
-    const tier = calcTier(s.eng,s.spa);
-    const dom = calcDominant(s.eng,s.spa);
-    const S = STRATEGIES[zone];
-    const action = '"' + S.action.replace(/"/g,'""') + '"';
-    return [s.id,s.grade,s.eng,s.spa,dom,S.zone,dirLabel(zone),tier,action].join(',');
-  }).join('\n');
-  const blob = new Blob([header+rows],{type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'biliteracy-compass-results.csv';
+function drawScatterPlot(){
+  const canvas=document.getElementById('scatter-canvas');if(!canvas)return;
+  const wrap=document.getElementById('plot-wrap');
+  const W=wrap.clientWidth,H=wrap.clientHeight;
+  canvas.width=W*window.devicePixelRatio;canvas.height=H*window.devicePixelRatio;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  const ctx=canvas.getContext('2d');ctx.scale(window.devicePixelRatio,window.devicePixelRatio);
+  const pad={top:20,right:20,bottom:48,left:48};
+  const pw=W-pad.left-pad.right,ph=H-pad.top-pad.bottom;
+  function toX(v){return pad.left+v/100*pw;}
+  function toY(v){return pad.top+(1-v/100)*ph;}
+  ctx.clearRect(0,0,W,H);
+
+  const zones=[
+    {x:0,y:0.5,w:0.5,h:0.5,fill:'rgba(110,143,122,0.08)',label:'N: Spanish Dominant',lx:0.25,ly:0.75,color:'#6E8F7A'},
+    {x:0.5,y:0.5,w:0.5,h:0.5,fill:'rgba(75,138,142,0.08)',label:'E: Advanced Biliteracy',lx:0.75,ly:0.75,color:'#4B8A8E'},
+    {x:0,y:0,w:0.5,h:0.5,fill:'rgba(200,162,90,0.08)',label:'W: Developing',lx:0.25,ly:0.25,color:'#C8A25A'},
+    {x:0.5,y:0,w:0.5,h:0.5,fill:'rgba(214,120,82,0.08)',label:'S: English Dominant',lx:0.75,ly:0.25,color:'#D67852'},
+  ];
+  zones.forEach(z=>{
+    ctx.fillStyle=z.fill;
+    ctx.fillRect(pad.left+z.x*pw,pad.top+(1-z.y-z.h)*ph,z.w*pw,z.h*ph);
+    ctx.fillStyle=z.color;ctx.font='500 10px Poppins,sans-serif';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(z.label,pad.left+z.lx*pw,pad.top+(1-z.ly)*ph);
+  });
+
+  for(let i=0;i<=100;i+=25){
+    ctx.strokeStyle='rgba(45,45,41,0.06)';ctx.lineWidth=0.5;ctx.setLineDash([]);
+    ctx.beginPath();ctx.moveTo(toX(i),pad.top);ctx.lineTo(toX(i),pad.top+ph);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(pad.left,toY(i));ctx.lineTo(pad.left+pw,toY(i));ctx.stroke();
+    ctx.fillStyle='#888';ctx.font='11px Poppins,sans-serif';
+    ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(i,toX(i),pad.top+ph+6);
+    if(i>0){ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(i,pad.left-6,toY(i));}
+  }
+
+  ctx.strokeStyle='#2D2D29';ctx.lineWidth=1.5;ctx.setLineDash([5,4]);
+  ctx.beginPath();ctx.moveTo(toX(50),pad.top);ctx.lineTo(toX(50),pad.top+ph);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pad.left,toY(50));ctx.lineTo(pad.left+pw,toY(50));ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.fillStyle='#888';ctx.font='11px Poppins,sans-serif';
+  ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText('English Percentile',pad.left+pw/2,H-4);
+  ctx.save();ctx.translate(14,pad.top+ph/2);ctx.rotate(-Math.PI/2);
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('Spanish Percentile',0,0);ctx.restore();
+
+  const dotColors={Spanish:'#6E8F7A',English:'#D67852','Balanced / Emerging':'#888780'};
+  canvas._students=classData.map((s,i)=>{
+    const dom=calcDominant(s.eng,s.spa);
+    const cx=toX(s.eng),cy=toY(s.spa);
+    ctx.beginPath();ctx.arc(cx,cy,7,0,2*Math.PI);
+    ctx.fillStyle=dotColors[dom]||'#888';ctx.fill();
+    ctx.strokeStyle='white';ctx.lineWidth=1.5;ctx.stroke();
+    return{x:cx,y:cy,student:s,idx:i};
+  });
+
+  canvas.onclick=function(e){
+    const rect=canvas.getBoundingClientRect();
+    const dpr=window.devicePixelRatio||1;
+    const mx=(e.clientX-rect.left);const my=(e.clientY-rect.top);
+    const hit=canvas._students&&canvas._students.find(d=>Math.hypot(d.x-mx,d.y-my)<12);
+    if(hit){
+      const profileDiv=document.getElementById('clicked-profile');
+      profileDiv.innerHTML=buildProfile(hit.student,'click'+hit.idx,true);
+      setTimeout(()=>drawCompass('compass-click'+hit.idx,calcZone(hit.student.eng,hit.student.spa)),50);
+      profileDiv.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  };
+
+  canvas.onmousemove=function(e){
+    const rect=canvas.getBoundingClientRect();
+    const mx=e.clientX-rect.left,my=e.clientY-rect.top;
+    const hit=canvas._students&&canvas._students.find(d=>Math.hypot(d.x-mx,d.y-my)<12);
+    const tooltip=document.getElementById('tooltip');
+    if(hit){
+      canvas.style.cursor='pointer';
+      tooltip.style.display='block';
+      tooltip.style.left=(e.offsetX+14)+'px';
+      tooltip.style.top=(e.offsetY-32)+'px';
+      tooltip.textContent=hit.student.id+' · Eng: '+hit.student.eng+'th · Spa: '+hit.student.spa+'th';
+    } else {
+      canvas.style.cursor='crosshair';
+      tooltip.style.display='none';
+    }
+  };
+}
+
+function downloadScatterPlot(){
+  const canvas=document.getElementById('scatter-canvas');if(!canvas)return;
+  const a=document.createElement('a');
+  a.href=canvas.toDataURL('image/png');
+  a.download='biliteracy-compass-class-plot.png';
   a.click();
 }
 
-// ─── TABS ─────────────────────────────────────────────────────────────────────
-function switchTab(name) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-'+name).classList.add('active');
-  const tabs = ['individual','class','dashboard','reference'];
-  document.querySelectorAll('.tab')[tabs.indexOf(name)].classList.add('active');
+function exportCSV(){
+  const header='StudentID,Grade,EnglishPercentile,SpanishPercentile,DominantLanguage,Zone,Direction,Tier\n';
+  const rows=classData.map(s=>{
+    const zone=calcZone(s.eng,s.spa),tier=calcTier(s.eng,s.spa),dom=calcDominant(s.eng,s.spa);
+    return[s.id,s.grade,s.eng,s.spa,dom,STRATEGIES[zone].zone,dirLabel(zone),tier].join(',');
+  }).join('\n');
+  const blob=new Blob([header+rows],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='biliteracy-compass-class-results.csv';a.click();
 }
+
+function switchTab(name){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  ['individual','class','dashboard','reference'].forEach((n,i)=>{
+    if(n===name)document.querySelectorAll('.tab')[i].classList.add('active');
+  });
+  if(name==='dashboard'&&classData.length>0)setTimeout(drawScatterPlot,100);
+}
+
+window.addEventListener('resize',()=>{if(classData.length>0&&document.getElementById('panel-dashboard').classList.contains('active'))drawScatterPlot();});
 </script>
 </body>
 </html>
